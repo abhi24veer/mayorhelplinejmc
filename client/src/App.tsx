@@ -3,9 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CssBaseline, GlobalStyles, Box } from "@mui/material";
 
 import Home from "./pages/Home";
-import AuthPage from "./pages/AuthPage";
-import Dashboard from "./pages/Dashboard";
-
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import DataDeletion from "./pages/DataDeletion";
@@ -30,9 +27,6 @@ const App: React.FC = () => {
         <Box component="main" sx={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/auth" element={<AuthPage />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-
             {/* Play Console / compliance pages */}
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<Terms />} />
