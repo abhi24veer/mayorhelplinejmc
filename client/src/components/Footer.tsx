@@ -1,35 +1,56 @@
+// src/components/Footer.tsx
 import React from "react";
-import { Box, Container, Grid, Link, Typography } from "@mui/material";
+import { Box, Container, Divider, Stack, Typography, Link as MuiLink } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 const Footer: React.FC = () => {
+  const year = new Date().getFullYear();
+
   return (
-    <Box component="footer" sx={{ bgcolor: "#000957", color: "#fff", mt: "auto" }}>
-      <Container sx={{ py: 4 }}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6}>
-            <Typography variant="h6" fontWeight={800}>YourApp</Typography>
-            <Typography variant="body2" sx={{ opacity: 0.9, mt: 1, maxWidth: 480 }}>
-              Fast, secure, and clean UX for modern web apps. Built on MUI, engineered for teams.
+    <Box component="footer" sx={{ mt: "auto", bgcolor: "background.paper", borderTop: (t) => `1px solid ${t.palette.divider}` }}>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          spacing={3}
+          sx={{ alignItems: { md: "center" }, justifyContent: "space-between" }}
+        >
+          <Box>
+            <Typography sx={{ fontWeight: 950 }}>Mayor Helpline • Showcase</Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5, maxWidth: 640 }}>
+              Informational website for the Android app project (citizen grievance + officer/admin workflow).
+              Policy links below are for Google Play compliance.
             </Typography>
-          </Grid>
-          <Grid item xs={6} md={3}>
-            <Typography variant="subtitle2" sx={{ opacity: 0.8, mb: 1 }}>
-              Product
-            </Typography>
-            <Link href="/#features" color="inherit" underline="hover" display="block">Features</Link>
-            <Link href="/#about" color="inherit" underline="hover" display="block">About</Link>
-            <Link href="/dashboard" color="inherit" underline="hover" display="block">Dashboard</Link>
-          </Grid>
-          <Grid item xs={6} md={3}>
-            <Typography variant="subtitle2" sx={{ opacity: 0.8, mb: 1 }}>
-              Account
-            </Typography>
-            <Link href="/auth?mode=login" color="inherit" underline="hover" display="block">Log in</Link>
-            <Link href="/auth?mode=signup" color="inherit" underline="hover" display="block">Sign up</Link>
-          </Grid>
-        </Grid>
-        <Typography variant="body2" sx={{ mt: 3, opacity: 0.8 }}>
-          © {new Date().getFullYear()} YourApp. All rights reserved.
+          </Box>
+
+          <Stack direction="row" spacing={2} sx={{ flexWrap: "wrap" }}>
+            <MuiLink component={RouterLink} to="/privacy" underline="hover" sx={{ fontWeight: 800 }}>
+              Privacy
+            </MuiLink>
+            <MuiLink component={RouterLink} to="/terms" underline="hover" sx={{ fontWeight: 800 }}>
+              Terms
+            </MuiLink>
+            <MuiLink component={RouterLink} to="/data-deletion" underline="hover" sx={{ fontWeight: 800 }}>
+              Data Deletion
+            </MuiLink>
+            <MuiLink component={RouterLink} to="/support" underline="hover" sx={{ fontWeight: 800 }}>
+              Support
+            </MuiLink>
+            <MuiLink
+              href="https://play.google.com/store" // TODO
+              target="_blank"
+              rel="noreferrer"
+              underline="hover"
+              sx={{ fontWeight: 800 }}
+            >
+              Google Play
+            </MuiLink>
+          </Stack>
+        </Stack>
+
+        <Divider sx={{ my: 3 }} />
+
+        <Typography variant="body2" color="text.secondary">
+          © {year} Mayor Helpline (Project Showcase)
         </Typography>
       </Container>
     </Box>
