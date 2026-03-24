@@ -118,11 +118,12 @@ const PrivacyPolicy: React.FC = () => {
       </List>
 
       <Typography variant="h6" fontWeight={800} sx={{ mt: 3, mb: 1 }}>
-        Children’s privacy
+        Age restriction
       </Typography>
       <Typography variant="body1" sx={{ mb: 2 }}>
-        This app is not intended for children under 13. We do not knowingly collect data from
-        children.
+        This application is intended for users aged 18 and above only. We do not knowingly collect
+        or process data from individuals under the age of 18. If we become aware that such data has
+        been collected, it will be deleted promptly.
       </Typography>
 
       <Typography variant="h6" fontWeight={800} sx={{ mt: 3, mb: 1 }}>
