@@ -42,12 +42,6 @@ const PrivacyPolicy: React.FC = () => {
             <b>Attachments</b>: photos or videos uploaded as supporting evidence.
           </Typography>
         </ListItem>
-        <ListItem>
-          <Typography>
-            <b>Device/usage data</b>: app performance logs, crash logs, and basic device information
-            (if analytics or crash reporting is enabled).
-          </Typography>
-        </ListItem>
       </List>
 
       <Typography variant="h6" fontWeight={800} sx={{ mt: 3, mb: 1 }}>
