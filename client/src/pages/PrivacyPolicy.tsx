@@ -4,6 +4,7 @@ import { Box, Container, Typography, Divider, List, ListItem, Link } from "@mui/
 const PrivacyPolicy: React.FC = () => {
   const lastUpdated = "2026-02-28";
   const supportEmail = "support@yourdomain.com"; // TODO
+  const deletionEmail = "majorhelplinejmc24@gmail.com";
 
   return (
     <Container sx={{ py: { xs: 6, md: 8 }, maxWidth: "md" }}>
@@ -93,6 +94,15 @@ const PrivacyPolicy: React.FC = () => {
         <ListItem>
           <Typography>
             <b>Delete:</b> You may request account deletion and/or data deletion via the Data Deletion page.
+          </Typography>
+        </ListItem>
+        <ListItem>
+          <Typography>
+            <b>Account Deletion Request:</b> Email{" "}
+            <Link href={`mailto:${deletionEmail}`} underline="hover">
+              {deletionEmail}
+            </Link>{" "}
+            to request deletion of your account.
           </Typography>
         </ListItem>
       </List>
