@@ -18,8 +18,9 @@ const PrivacyPolicy: React.FC = () => {
       <Divider sx={{ my: 3 }} />
 
       <Typography variant="body1" sx={{ mb: 2 }}>
-        Mayor Helpline is operated for municipal grievance and service requests. This Privacy Policy
-        explains what information we collect, how we use it, and your choices.
+        Mayor Helpline JMC is an independent platform designed to help citizens report and track
+        local issues and service requests. This application is not an official government app but
+        aims to facilitate communication between citizens and relevant authorities.
       </Typography>
 
       <Typography variant="h6" fontWeight={800} sx={{ mt: 3, mb: 1 }}>
@@ -28,22 +29,18 @@ const PrivacyPolicy: React.FC = () => {
       <List dense>
         <ListItem>
           <Typography>
-            <b>Account data</b> (if you create an account): name, phone number/email, role (Citizen/Officer/Admin).
+            <b>Account data</b>: name, phone number/email, and user role (Citizen/Officer/Admin).
           </Typography>
         </ListItem>
         <ListItem>
           <Typography>
-            <b>Complaint data</b>: complaint text, category, location details you provide, timestamps, status history.
+            <b>Complaint data</b>: complaint text, category, location details you provide,
+            timestamps, and status history.
           </Typography>
         </ListItem>
         <ListItem>
           <Typography>
-            <b>Attachments</b> (optional): photos/videos you upload for complaint evidence.
-          </Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>
-            <b>Device/usage data</b> (if analytics/crash reporting is enabled): app performance logs, crash logs, device identifiers.
+            <b>Attachments</b>: photos or videos uploaded as supporting evidence.
           </Typography>
         </ListItem>
       </List>
@@ -52,34 +49,51 @@ const PrivacyPolicy: React.FC = () => {
         How we use information
       </Typography>
       <List dense>
-        <ListItem><Typography>Provide and improve complaint registration, tracking, and resolution.</Typography></ListItem>
-        <ListItem><Typography>Verify users and prevent abuse/fraud.</Typography></ListItem>
-        <ListItem><Typography>Communicate updates about complaint status.</Typography></ListItem>
-        <ListItem><Typography>Debug issues and monitor stability (crashes/ANR).</Typography></ListItem>
+        <ListItem>
+          <Typography>
+            To enable complaint submission, tracking, and resolution workflows.
+          </Typography>
+        </ListItem>
+        <ListItem>
+          <Typography>
+            To verify users and prevent misuse of the platform.
+          </Typography>
+        </ListItem>
+        <ListItem>
+          <Typography>
+            To notify users about updates or status changes.
+          </Typography>
+        </ListItem>
+        <ListItem>
+          <Typography>
+            To improve app performance, stability, and user experience.
+          </Typography>
+        </ListItem>
       </List>
 
       <Typography variant="h6" fontWeight={800} sx={{ mt: 3, mb: 1 }}>
-        Sharing
+        Sharing of information
       </Typography>
       <Typography variant="body1" sx={{ mb: 2 }}>
-        We share data only with authorized municipal departments/officers for resolving complaints, and
-        with service providers required to operate the app (e.g., hosting, storage, analytics) as applicable.
+        Information may be shared with relevant authorities, service providers, or platform
+        administrators solely for the purpose of resolving reported issues and maintaining app
+        functionality. We do not sell personal data.
       </Typography>
 
       <Typography variant="h6" fontWeight={800} sx={{ mt: 3, mb: 1 }}>
         Data retention
       </Typography>
       <Typography variant="body1" sx={{ mb: 2 }}>
-        Complaint records are retained as required for municipal service operations, audit, and reporting.
-        You can request deletion where applicable (see “Your choices”).
+        Data is retained only as long as necessary to provide services, maintain records, and comply
+        with operational needs. Users may request deletion of their data where applicable.
       </Typography>
 
       <Typography variant="h6" fontWeight={800} sx={{ mt: 3, mb: 1 }}>
         Security
       </Typography>
       <Typography variant="body1" sx={{ mb: 2 }}>
-        We use reasonable technical and organizational measures to protect information, including encryption in transit
-        where supported by our infrastructure.
+        We implement reasonable security measures to protect your data, including encryption in
+        transit and controlled access to stored information.
       </Typography>
 
       <Typography variant="h6" fontWeight={800} sx={{ mt: 3, mb: 1 }}>
@@ -108,6 +122,15 @@ const PrivacyPolicy: React.FC = () => {
       </List>
 
       <Typography variant="h6" fontWeight={800} sx={{ mt: 3, mb: 1 }}>
+        Age restriction
+      </Typography>
+      <Typography variant="body1" sx={{ mb: 2 }}>
+        This application is intended for users aged 18 and above only. We do not knowingly collect
+        or process data from individuals under the age of 18. If we become aware that such data has
+        been collected, it will be deleted promptly.
+      </Typography>
+
+      <Typography variant="h6" fontWeight={800} sx={{ mt: 3, mb: 1 }}>
         Contact
       </Typography>
       <Typography variant="body1">
@@ -119,7 +142,7 @@ const PrivacyPolicy: React.FC = () => {
 
       <Box sx={{ mt: 4 }}>
         <Typography variant="caption" color="text.secondary">
-          Note: Update this policy so it exactly matches your actual SDKs (Firebase, analytics, ads) and permissions used.
+          This policy should reflect actual services, SDKs, and permissions used in the application.
         </Typography>
       </Box>
     </Container>
