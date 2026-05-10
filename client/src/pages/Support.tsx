@@ -5,7 +5,7 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 const Support: React.FC = () => {
   const supportEmail = "majorhelplinejmc24@gmail.com";
-  const phone = "Email support only";
+  const phone = "+91 9702412097";
 
   return (
     <Container sx={{ py: { xs: 6, md: 8 }, maxWidth: "md" }}>
