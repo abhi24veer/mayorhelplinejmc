@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Typography, Divider, Stack, Button, Box, Link } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import { Link as RouterLink } from "react-router-dom";
 
 const Support: React.FC = () => {
   const supportEmail = "majorhelplinejmc24@gmail.com";
@@ -31,9 +32,10 @@ const Support: React.FC = () => {
         </Button>
 
         <Button
+          component={RouterLink}
+          to="/privacy"
           variant="outlined"
           startIcon={<HelpOutlineIcon />}
-          href="/privacy"
           sx={{ borderRadius: 3, fontWeight: 900 }}
         >
           Privacy Policy
