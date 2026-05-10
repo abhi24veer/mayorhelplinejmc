@@ -1,4 +1,3 @@
-// src/pages/Home.tsx  (new design: "product brief" layout, no floating icons / no typewriter)
 import React, { useMemo } from "react";
 import {
   Box,
@@ -13,7 +12,6 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 
-// icons
 import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
 import ManageSearchOutlinedIcon from "@mui/icons-material/ManageSearchOutlined";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
@@ -33,38 +31,91 @@ import ApiOutlinedIcon from "@mui/icons-material/ApiOutlined";
 const Home: React.FC = () => {
   const modules = useMemo(
     () => [
-      { icon: <PublicOutlinedIcon />, title: "Citizen App", desc: "Create complaints, attach evidence, track updates." },
-      { icon: <VerifiedUserOutlinedIcon />, title: "Officer Console", desc: "Triage, remarks, status updates, escalation/transfer." },
-      { icon: <AdminPanelSettingsOutlinedIcon />, title: "Admin Oversight", desc: "Monitoring, user management, control of flows." },
+      {
+        icon: <PublicOutlinedIcon />,
+        title: "Citizen App",
+        desc: "Create complaints, attach evidence, and track updates.",
+      },
+      {
+        icon: <VerifiedUserOutlinedIcon />,
+        title: "Officer Console",
+        desc: "Triage complaints, add remarks, update status, escalate, and transfer.",
+      },
+      {
+        icon: <AdminPanelSettingsOutlinedIcon />,
+        title: "Admin Oversight",
+        desc: "Monitor workflows, manage users, and oversee complaint operations.",
+      },
     ],
     []
   );
 
   const workflow = useMemo(
     () => [
-      { icon: <AssignmentTurnedInOutlinedIcon />, title: "Register", desc: "Complaint + metadata (category, location, notes)." },
-      { icon: <ManageSearchOutlinedIcon />, title: "Assign & Verify", desc: "Department handling and field verification if needed." },
-      { icon: <TimelineOutlinedIcon />, title: "Track & Audit", desc: "Status history with remarks for accountability." },
-      { icon: <SwapHorizOutlinedIcon />, title: "Escalate / Transfer", desc: "Route across levels or departments when required." },
-      { icon: <PhotoCameraOutlinedIcon />, title: "Evidence", desc: "Optional photo attachments for faster resolution." },
+      {
+        icon: <AssignmentTurnedInOutlinedIcon />,
+        title: "Register",
+        desc: "Complaint details, category, location, notes, and optional evidence.",
+      },
+      {
+        icon: <ManageSearchOutlinedIcon />,
+        title: "Assign & Verify",
+        desc: "Department handling and field verification where required.",
+      },
+      {
+        icon: <TimelineOutlinedIcon />,
+        title: "Track & Audit",
+        desc: "Status history, remarks, and action logs for accountability.",
+      },
+      {
+        icon: <SwapHorizOutlinedIcon />,
+        title: "Escalate / Transfer",
+        desc: "Route complaints across levels or departments when required.",
+      },
+      {
+        icon: <PhotoCameraOutlinedIcon />,
+        title: "Evidence",
+        desc: "Optional photo or media attachments for faster review.",
+      },
     ],
     []
   );
 
   const tech = useMemo(
     () => [
-      { icon: <MemoryOutlinedIcon />, title: "Mobile", desc: "React Native (Expo) Android app." },
-      { icon: <ApiOutlinedIcon />, title: "Backend", desc: "Node/Express API for complaints and actions." },
-      { icon: <StorageOutlinedIcon />, title: "Database & Media", desc: "MongoDB + cloud storage for attachments." },
+      {
+        icon: <MemoryOutlinedIcon />,
+        title: "Mobile",
+        desc: "React Native / Expo Android app.",
+      },
+      {
+        icon: <ApiOutlinedIcon />,
+        title: "Backend",
+        desc: "Node.js and Express API for complaints, accounts, and actions.",
+      },
+      {
+        icon: <StorageOutlinedIcon />,
+        title: "Database & Media",
+        desc: "MongoDB and cloud storage for complaint records and attachments.",
+      },
     ],
     []
   );
 
   const faqs = useMemo(
     () => [
-      { q: "Is this the actual app?", a: "No. This is a showcase site. The real product is the Android application." },
-      { q: "Why these policy pages?", a: "Google Play requires public URLs for privacy/support/disclosures." },
-      { q: "What should reviewers see?", a: "A working complaint flow + role-based screens (citizen/officer/admin), with test credentials if login is required." },
+      {
+        q: "Is this the actual app?",
+        a: "No. This is a public showcase and policy website. The actual product is the Android application.",
+      },
+      {
+        q: "Why are these policy pages included?",
+        a: "Google Play requires public URLs for privacy policy, support, terms, and data deletion disclosures.",
+      },
+      {
+        q: "What should reviewers see?",
+        a: "A working complaint flow with citizen, officer, and admin functionality, plus test credentials if login is required.",
+      },
     ],
     []
   );
@@ -79,8 +130,14 @@ const Home: React.FC = () => {
 
   return (
     <Box sx={{ bgcolor: "background.default" }}>
-      {/* HERO (split, product-brief style) */}
-      <Box id="overview" sx={{ py: { xs: 7, md: 10 }, bgcolor: "background.paper", borderBottom: (t) => `1px solid ${t.palette.divider}` }}>
+      <Box
+        id="overview"
+        sx={{
+          py: { xs: 7, md: 10 },
+          bgcolor: "background.paper",
+          borderBottom: (t) => `1px solid ${t.palette.divider}`,
+        }}
+      >
         <Container maxWidth="lg">
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={7}>
@@ -91,18 +148,22 @@ const Home: React.FC = () => {
                   <Chip label="Jabalpur Municipal Corporation" variant="outlined" />
                 </Stack>
 
-                <Typography variant="h2" sx={{ fontWeight: 1000, letterSpacing: -0.8, lineHeight: 1.05 }}>
+                <Typography
+                  variant="h2"
+                  sx={{ fontWeight: 1000, letterSpacing: -0.8, lineHeight: 1.05 }}
+                >
                   Municipal grievances, tracked end-to-end.
                 </Typography>
 
                 <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 760, lineHeight: 1.6 }}>
-                  This website showcases the Mayor Helpline app project and hosts the public policy/support pages used for Google Play submission.
+                  This website showcases the Mayor Helpline JMC app project and hosts the public
+                  privacy, terms, support, and data deletion pages used for Google Play submission.
                 </Typography>
 
                 <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ pt: 1 }}>
                   <Button
                     component="a"
-                    href="https://play.google.com/store" // TODO
+                    href="https://play.google.com/store"
                     target="_blank"
                     rel="noreferrer"
                     variant="contained"
@@ -111,6 +172,7 @@ const Home: React.FC = () => {
                   >
                     View on Google Play
                   </Button>
+
                   <Button
                     component={RouterLink}
                     to="/support"
@@ -120,6 +182,7 @@ const Home: React.FC = () => {
                   >
                     Support
                   </Button>
+
                   <Button
                     component={RouterLink}
                     to="/privacy"
@@ -134,32 +197,43 @@ const Home: React.FC = () => {
             </Grid>
 
             <Grid item xs={12} md={5}>
-              {/* Clean "spec card" instead of flashy hero */}
               <Card sx={{ ...cardSx, borderRadius: 5 }}>
                 <CardContent sx={{ p: { xs: 3, md: 3.5 } }}>
                   <Typography sx={{ fontWeight: 950, mb: 1.5 }}>At a glance</Typography>
+
                   <Stack spacing={1.2}>
                     <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
                       <Typography color="text.secondary">Primary goal</Typography>
-                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>Complaint resolution</Typography>
+                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>
+                        Complaint resolution
+                      </Typography>
                     </Box>
+
                     <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
                       <Typography color="text.secondary">Users</Typography>
-                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>Citizen • Officer • Admin</Typography>
+                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>
+                        Citizen • Officer • Admin
+                      </Typography>
                     </Box>
+
                     <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
                       <Typography color="text.secondary">Key capability</Typography>
-                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>Status tracking + audit</Typography>
+                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>
+                        Status tracking + audit
+                      </Typography>
                     </Box>
+
                     <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
                       <Typography color="text.secondary">Evidence</Typography>
-                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>Optional photos</Typography>
+                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>
+                        Optional photos
+                      </Typography>
                     </Box>
                   </Stack>
 
                   <Box sx={{ mt: 2.5, p: 1.5, borderRadius: 3, bgcolor: "action.hover" }}>
                     <Typography variant="body2" color="text.secondary">
-                      Note: This site is informational; complaints are filed in the mobile app.
+                      Note: This website is informational. Complaints are filed in the mobile app.
                     </Typography>
                   </Box>
                 </CardContent>
@@ -169,7 +243,6 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
-      {/* MODULES */}
       <Box id="modules" sx={{ py: { xs: 7, md: 9 } }}>
         <Container maxWidth="lg">
           <Stack spacing={1} sx={{ mb: 4 }}>
@@ -199,8 +272,15 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
-      {/* WORKFLOW */}
-      <Box id="workflow" sx={{ py: { xs: 7, md: 9 }, bgcolor: "background.paper", borderTop: (t) => `1px solid ${t.palette.divider}`, borderBottom: (t) => `1px solid ${t.palette.divider}` }}>
+      <Box
+        id="workflow"
+        sx={{
+          py: { xs: 7, md: 9 },
+          bgcolor: "background.paper",
+          borderTop: (t) => `1px solid ${t.palette.divider}`,
+          borderBottom: (t) => `1px solid ${t.palette.divider}`,
+        }}
+      >
         <Container maxWidth="lg">
           <Stack spacing={1} sx={{ mb: 4 }}>
             <Typography variant="h3" sx={{ fontWeight: 1000, letterSpacing: -0.6 }}>
@@ -229,7 +309,6 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
-      {/* SCREENS (clean placeholder tiles) */}
       <Box id="screens" sx={{ py: { xs: 7, md: 9 } }}>
         <Container maxWidth="lg">
           <Stack spacing={1} sx={{ mb: 4 }}>
@@ -265,6 +344,7 @@ const Home: React.FC = () => {
                       e.currentTarget.style.display = "none";
                     }}
                   />
+
                   <CardContent sx={{ p: 2.5 }}>
                     <Typography sx={{ fontWeight: 950 }}>{s.label}</Typography>
                     <Typography variant="body2" color="text.secondary">
@@ -278,8 +358,14 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
-      {/* TECH */}
-      <Box id="tech" sx={{ py: { xs: 7, md: 9 }, bgcolor: "background.paper", borderTop: (t) => `1px solid ${t.palette.divider}` }}>
+      <Box
+        id="tech"
+        sx={{
+          py: { xs: 7, md: 9 },
+          bgcolor: "background.paper",
+          borderTop: (t) => `1px solid ${t.palette.divider}`,
+        }}
+      >
         <Container maxWidth="lg">
           <Stack spacing={1} sx={{ mb: 4 }}>
             <Typography variant="h3" sx={{ fontWeight: 1000, letterSpacing: -0.6 }}>
@@ -308,14 +394,13 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
-      {/* FAQ */}
       <Box id="faq" sx={{ py: { xs: 7, md: 9 } }}>
         <Container maxWidth="lg">
           <Stack spacing={1} sx={{ mb: 4 }}>
             <Typography variant="h3" sx={{ fontWeight: 1000, letterSpacing: -0.6 }}>
               FAQ
             </Typography>
-            <Typography color="text.secondary">Common questions for Play Console / reviewers.</Typography>
+            <Typography color="text.secondary">Common questions for Play Console reviewers.</Typography>
           </Stack>
 
           <Grid container spacing={3}>
@@ -346,6 +431,7 @@ const Home: React.FC = () => {
             >
               Privacy Policy
             </Button>
+
             <Button
               component={RouterLink}
               to="/support"
