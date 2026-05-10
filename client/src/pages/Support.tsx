@@ -6,7 +6,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 const Support: React.FC = () => {
   const supportEmail = "majorhelplinejmc24@gmail.com";
-  const phone = "+91 9702412097";
+  const phone = "Email support only";
 
   return (
     <Container sx={{ py: { xs: 6, md: 8 }, maxWidth: "md" }}>
@@ -23,9 +23,10 @@ const Support: React.FC = () => {
 
       <Stack spacing={2} direction={{ xs: "column", sm: "row" }}>
         <Button
+          component="a"
+          href={`mailto:${supportEmail}`}
           variant="contained"
           startIcon={<EmailIcon />}
-          href={`mailto:${supportEmail}`}
           sx={{ borderRadius: 3, fontWeight: 900 }}
         >
           Email Support
