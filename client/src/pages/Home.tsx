@@ -9,6 +9,10 @@ import {
   Grid,
   Stack,
   Typography,
+  Divider,
+  List,
+  ListItem,
+  Link,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -27,6 +31,19 @@ import QuestionAnswerOutlinedIcon from "@mui/icons-material/QuestionAnswerOutlin
 import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
 import StorageOutlinedIcon from "@mui/icons-material/StorageOutlined";
 import ApiOutlinedIcon from "@mui/icons-material/ApiOutlined";
+import GppGoodOutlinedIcon from "@mui/icons-material/GppGoodOutlined";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import ChildCareOutlinedIcon from "@mui/icons-material/ChildCareOutlined";
+import UpdateOutlinedIcon from "@mui/icons-material/UpdateOutlined";
+import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import AttachFileOutlinedIcon from "@mui/icons-material/AttachFileOutlined";
+
+const SUPPORT_EMAIL = "majorhelplinejmc24@gmail.com";
+const LAST_UPDATED = "2026-02-28";
 
 const Home: React.FC = () => {
   const modules = useMemo(
@@ -120,6 +137,99 @@ const Home: React.FC = () => {
     []
   );
 
+  const privacySections = useMemo(
+    () => [
+      {
+        icon: <InfoOutlinedIcon />,
+        title: "Information We Collect",
+        items: [
+          "Account information: name, phone number, email address, login credentials, and user role (Citizen, Officer, or Admin).",
+          "Complaint information: description, category, location, timestamps, remarks, department, status history, and action logs.",
+          "Attachments: photos, videos, or documents uploaded as supporting evidence.",
+          "Device and usage information: app activity, error logs, and device info where applicable.",
+        ],
+      },
+      {
+        icon: <GppGoodOutlinedIcon />,
+        title: "How We Use Information",
+        items: [
+          "To allow users to create, submit, view, and track municipal complaints.",
+          "To allow authorized officers and admins to review, assign, update, escalate, transfer, and resolve complaints.",
+          "To verify users, prevent misuse, maintain accountability, and protect the platform.",
+          "To send complaint-related updates, notifications, or service messages.",
+          "To improve application performance, reliability, security, and user experience.",
+        ],
+      },
+      {
+        icon: <LocationOnOutlinedIcon />,
+        title: "Location Information",
+        items: [
+          "The application may collect or allow users to provide location-related information to identify where a complaint or service issue occurred.",
+          "Location information is used only for complaint handling, verification, assignment, and resolution workflows.",
+        ],
+      },
+      {
+        icon: <AttachFileOutlinedIcon />,
+        title: "Media & File Uploads",
+        items: [
+          "Users may upload photos, videos, or other supporting files as complaint evidence.",
+          "These files are used only to support complaint review, verification, and resolution.",
+          "Users should avoid uploading sensitive personal information unless necessary for the complaint.",
+        ],
+      },
+      {
+        icon: <ShareOutlinedIcon />,
+        title: "Sharing of Information",
+        items: [
+          "Complaint-related information may be shared with authorized officers, administrators, relevant departments, service providers, or technical personnel only as needed.",
+          "We do not sell personal data.",
+        ],
+      },
+      {
+        icon: <LockOutlinedIcon />,
+        title: "Security",
+        items: [
+          "We use reasonable technical and organizational measures to protect user data, including controlled access, authentication, and secure transmission.",
+          "No method of electronic storage or transmission is completely secure, and we cannot guarantee absolute security.",
+        ],
+      },
+      {
+        icon: <DeleteOutlineOutlinedIcon />,
+        title: "Data Deletion",
+        items: [
+          `Users may request deletion of their account and related personal data by emailing ${SUPPORT_EMAIL} with the subject "Data Deletion Request".`,
+          "We may ask for verification details before processing the request.",
+          "Some complaint records may be retained after account deletion where required for legal or audit purposes.",
+        ],
+      },
+      {
+        icon: <ChildCareOutlinedIcon />,
+        title: "Children's Privacy",
+        items: [
+          "This application is intended for users aged 18 and above.",
+          "We do not knowingly collect personal data from children under 18. If we become aware that data from a child has been collected, we will take reasonable steps to delete it.",
+        ],
+      },
+      {
+        icon: <UpdateOutlinedIcon />,
+        title: "Changes to This Policy",
+        items: [
+          "We may update this Privacy Policy from time to time.",
+          `Updates will be posted on this page with a revised "Last updated" date. Last updated: ${LAST_UPDATED}.`,
+        ],
+      },
+      {
+        icon: <ContactMailOutlinedIcon />,
+        title: "Contact Us",
+        items: [
+          `For privacy questions, support requests, or data deletion requests, contact us at ${SUPPORT_EMAIL}.`,
+        ],
+        email: SUPPORT_EMAIL,
+      },
+    ],
+    []
+  );
+
   const cardSx = {
     borderRadius: 4,
     border: (t: any) => `1px solid ${t.palette.divider}`,
@@ -130,6 +240,7 @@ const Home: React.FC = () => {
 
   return (
     <Box sx={{ bgcolor: "background.default" }}>
+      {/* ── Hero ── */}
       <Box
         id="overview"
         sx={{
@@ -142,7 +253,7 @@ const Home: React.FC = () => {
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={7}>
               <Stack spacing={2}>
-                <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
+                <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
                   <Chip label="Project Showcase" variant="outlined" />
                   <Chip label="Mayor Helpline" color="primary" variant="outlined" />
                   <Chip label="Jabalpur Municipal Corporation" variant="outlined" />
@@ -155,12 +266,20 @@ const Home: React.FC = () => {
                   Municipal grievances, tracked end-to-end.
                 </Typography>
 
-                <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 760, lineHeight: 1.6 }}>
+                <Typography
+                  variant="h6"
+                  color="text.secondary"
+                  sx={{ maxWidth: 760, lineHeight: 1.6 }}
+                >
                   This website showcases the Mayor Helpline JMC app project and hosts the public
                   privacy, terms, support, and data deletion pages used for Google Play submission.
                 </Typography>
 
-                <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ pt: 1 }}>
+                <Stack
+                  direction={{ xs: "column", sm: "row" }}
+                  spacing={1.5}
+                  sx={{ pt: 1, flexWrap: "wrap" }}
+                >
                   <Button
                     component="a"
                     href="https://play.google.com/store"
@@ -184,8 +303,8 @@ const Home: React.FC = () => {
                   </Button>
 
                   <Button
-                    component={RouterLink}
-                    to="/privacy"
+                    component="a"
+                    href="#privacy"
                     variant="text"
                     startIcon={<PrivacyTipOutlinedIcon />}
                     sx={{ borderRadius: 3, fontWeight: 900, px: 2.2, py: 1.1 }}
@@ -202,33 +321,20 @@ const Home: React.FC = () => {
                   <Typography sx={{ fontWeight: 950, mb: 1.5 }}>At a glance</Typography>
 
                   <Stack spacing={1.2}>
-                    <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
-                      <Typography color="text.secondary">Primary goal</Typography>
-                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>
-                        Complaint resolution
-                      </Typography>
-                    </Box>
-
-                    <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
-                      <Typography color="text.secondary">Users</Typography>
-                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>
-                        Citizen • Officer • Admin
-                      </Typography>
-                    </Box>
-
-                    <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
-                      <Typography color="text.secondary">Key capability</Typography>
-                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>
-                        Status tracking + audit
-                      </Typography>
-                    </Box>
-
-                    <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
-                      <Typography color="text.secondary">Evidence</Typography>
-                      <Typography sx={{ fontWeight: 900, textAlign: "right" }}>
-                        Optional photos
-                      </Typography>
-                    </Box>
+                    {[
+                      { label: "Primary goal", value: "Complaint resolution" },
+                      { label: "Users", value: "Citizen • Officer • Admin" },
+                      { label: "Key capability", value: "Status tracking + audit" },
+                      { label: "Evidence", value: "Optional photos" },
+                    ].map(({ label, value }) => (
+                      <Box
+                        key={label}
+                        sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}
+                      >
+                        <Typography color="text.secondary">{label}</Typography>
+                        <Typography sx={{ fontWeight: 900, textAlign: "right" }}>{value}</Typography>
+                      </Box>
+                    ))}
                   </Stack>
 
                   <Box sx={{ mt: 2.5, p: 1.5, borderRadius: 3, bgcolor: "action.hover" }}>
@@ -243,6 +349,7 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
+      {/* ── Modules ── */}
       <Box id="modules" sx={{ py: { xs: 7, md: 9 } }}>
         <Container maxWidth="lg">
           <Stack spacing={1} sx={{ mb: 4 }}>
@@ -256,7 +363,7 @@ const Home: React.FC = () => {
 
           <Grid container spacing={3}>
             {modules.map((m) => (
-              <Grid item xs={12} md={4} key={m.title}>
+              <Grid item xs={12} sm={6} md={4} key={m.title}>
                 <Card sx={cardSx}>
                   <CardContent sx={{ p: { xs: 3, md: 3.5 } }}>
                     <Box sx={{ fontSize: 34, mb: 1, color: "primary.main" }}>{m.icon}</Box>
@@ -272,6 +379,7 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
+      {/* ── Workflow ── */}
       <Box
         id="workflow"
         sx={{
@@ -309,6 +417,7 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
+      {/* ── Screens ── */}
       <Box id="screens" sx={{ py: { xs: 7, md: 9 } }}>
         <Container maxWidth="lg">
           <Stack spacing={1} sx={{ mb: 4 }}>
@@ -344,7 +453,6 @@ const Home: React.FC = () => {
                       e.currentTarget.style.display = "none";
                     }}
                   />
-
                   <CardContent sx={{ p: 2.5 }}>
                     <Typography sx={{ fontWeight: 950 }}>{s.label}</Typography>
                     <Typography variant="body2" color="text.secondary">
@@ -358,6 +466,7 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
+      {/* ── Tech Stack ── */}
       <Box
         id="tech"
         sx={{
@@ -378,7 +487,7 @@ const Home: React.FC = () => {
 
           <Grid container spacing={3}>
             {tech.map((t) => (
-              <Grid item xs={12} md={4} key={t.title}>
+              <Grid item xs={12} sm={6} md={4} key={t.title}>
                 <Card sx={cardSx}>
                   <CardContent sx={{ p: { xs: 3, md: 3.5 } }}>
                     <Box sx={{ fontSize: 30, mb: 1, color: "primary.main" }}>{t.icon}</Box>
@@ -394,13 +503,16 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
+      {/* ── FAQ ── */}
       <Box id="faq" sx={{ py: { xs: 7, md: 9 } }}>
         <Container maxWidth="lg">
           <Stack spacing={1} sx={{ mb: 4 }}>
             <Typography variant="h3" sx={{ fontWeight: 1000, letterSpacing: -0.6 }}>
               FAQ
             </Typography>
-            <Typography color="text.secondary">Common questions for Play Console reviewers.</Typography>
+            <Typography color="text.secondary">
+              Common questions for Play Console reviewers.
+            </Typography>
           </Stack>
 
           <Grid container spacing={3}>
@@ -421,10 +533,14 @@ const Home: React.FC = () => {
             ))}
           </Grid>
 
-          <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ mt: 4 }}>
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={1.5}
+            sx={{ mt: 4, flexWrap: "wrap" }}
+          >
             <Button
-              component={RouterLink}
-              to="/privacy"
+              component="a"
+              href="#privacy"
               variant="outlined"
               startIcon={<PrivacyTipOutlinedIcon />}
               sx={{ borderRadius: 3, fontWeight: 950, px: 2.5, py: 1.1 }}
@@ -442,6 +558,158 @@ const Home: React.FC = () => {
               Contact Support
             </Button>
           </Stack>
+        </Container>
+      </Box>
+
+      {/* ── Privacy Policy ── */}
+      <Box
+        id="privacy"
+        sx={{
+          py: { xs: 7, md: 10 },
+          bgcolor: "background.paper",
+          borderTop: (t) => `1px solid ${t.palette.divider}`,
+        }}
+      >
+        <Container maxWidth="lg">
+          {/* Section header */}
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            alignItems={{ xs: "flex-start", sm: "center" }}
+            justifyContent="space-between"
+            spacing={2}
+            sx={{ mb: 1 }}
+          >
+            <Stack spacing={0.5}>
+              <Stack direction="row" spacing={1} alignItems="center">
+                <PrivacyTipOutlinedIcon color="primary" sx={{ fontSize: 28 }} />
+                <Typography variant="h3" sx={{ fontWeight: 1000, letterSpacing: -0.6 }}>
+                  Privacy Policy
+                </Typography>
+              </Stack>
+              <Typography color="text.secondary" sx={{ maxWidth: 680 }}>
+                How Mayor Helpline JMC collects, uses, and protects your data.
+              </Typography>
+            </Stack>
+
+            <Chip
+              label={`Last updated: ${LAST_UPDATED}`}
+              variant="outlined"
+              size="small"
+              sx={{ flexShrink: 0, fontWeight: 700 }}
+            />
+          </Stack>
+
+          <Divider sx={{ mb: 4 }} />
+
+          {/* Intro */}
+          <Box
+            sx={{
+              mb: 4,
+              p: { xs: 2.5, md: 3 },
+              borderRadius: 4,
+              bgcolor: "action.hover",
+              border: (t) => `1px solid ${t.palette.divider}`,
+            }}
+          >
+            <Typography variant="body1" sx={{ lineHeight: 1.75 }}>
+              Mayor Helpline JMC is a municipal grievance support application designed to help
+              citizens submit complaints, attach supporting evidence, and track complaint status
+              updates. By using the application, you agree to the collection and use of information
+              as described in this Privacy Policy.
+            </Typography>
+          </Box>
+
+          {/* Policy cards */}
+          <Grid container spacing={3}>
+            {privacySections.map((section) => (
+              <Grid item xs={12} sm={6} md={4} key={section.title}>
+                <Card sx={{ ...cardSx, display: "flex", flexDirection: "column" }}>
+                  <CardContent
+                    sx={{ p: { xs: 3, md: 3.5 }, display: "flex", flexDirection: "column", flex: 1 }}
+                  >
+                    <Box sx={{ fontSize: 28, mb: 1, color: "primary.main" }}>{section.icon}</Box>
+                    <Typography sx={{ fontWeight: 950, mb: 1.5 }}>{section.title}</Typography>
+
+                    <List dense disablePadding sx={{ flex: 1 }}>
+                      {section.items.map((item, idx) => (
+                        <ListItem
+                          key={idx}
+                          disableGutters
+                          sx={{ alignItems: "flex-start", py: 0.4 }}
+                        >
+                          <Box
+                            component="span"
+                            sx={{
+                              display: "inline-block",
+                              width: 5,
+                              height: 5,
+                              borderRadius: "50%",
+                              bgcolor: "primary.main",
+                              mt: "8px",
+                              mr: 1.25,
+                              flexShrink: 0,
+                            }}
+                          />
+                          <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.65 }}>
+                            {section.email ? (
+                              <>
+                                For privacy questions, support requests, or data deletion requests,
+                                contact us at{" "}
+                                <Link
+                                  href={`mailto:${section.email}`}
+                                  underline="hover"
+                                  color="primary"
+                                >
+                                  {section.email}
+                                </Link>
+                                .
+                              </>
+                            ) : (
+                              item
+                            )}
+                          </Typography>
+                        </ListItem>
+                      ))}
+                    </List>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+
+          {/* Footer note + CTA */}
+          <Box
+            sx={{
+              mt: 4,
+              p: { xs: 2.5, md: 3 },
+              borderRadius: 4,
+              border: (t) => `1px solid ${t.palette.divider}`,
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              alignItems: { xs: "flex-start", sm: "center" },
+              justifyContent: "space-between",
+              gap: 2,
+            }}
+          >
+            <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 560 }}>
+              This policy should be kept consistent with the actual app permissions, SDKs, and data
+              collection practices used in production. Questions? Email{" "}
+              <Link href={`mailto:${SUPPORT_EMAIL}`} underline="hover" color="primary">
+                {SUPPORT_EMAIL}
+              </Link>
+              .
+            </Typography>
+
+            <Button
+              component="a"
+              href={`mailto:${SUPPORT_EMAIL}?subject=Data%20Deletion%20Request`}
+              variant="outlined"
+              startIcon={<DeleteOutlineOutlinedIcon />}
+              sx={{ borderRadius: 3, fontWeight: 950, px: 2.5, py: 1.1, flexShrink: 0 }}
+            >
+              Request Data Deletion
+            </Button>
+          </Box>
         </Container>
       </Box>
     </Box>
